@@ -3,18 +3,13 @@ package com.gaming.lab.controller;
 import com.gaming.lab.data.Course;
 import com.gaming.lab.data.LabInfo;
 import com.gaming.lab.data.PostRepository;
-import lombok.val;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.imageio.ImageIO;
-import javax.sql.rowset.BaseRowSet;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
