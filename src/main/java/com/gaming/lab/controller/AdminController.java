@@ -42,6 +42,7 @@ public class AdminController {
     }
 
     private String encode(MultipartFile image){
+        System.out.println("hello");
         String imageString = null;
         try{
             InputStream input = image.getInputStream();
