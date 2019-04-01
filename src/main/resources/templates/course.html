@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Courses</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+<center>
+    <div style="width: 100%; margin-top: 3%;">
+        <img th:src="@{/images/logo.png}">
+    </div>
+</center>
+<center>
+
+    <div class="course" th:each="c : ${course}" style="margin-bottom : 3%;">
+        <table>
+            <tr>
+                <td>
+                    <center><div>
+                        <img th:src="@{'data:image/png;base64,'+${c.courseImage}}"  style="padding: 5%; width: 75%; border-radius: 75px;">
+                    </div></center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <center><div>
+                        <button th:style="'background-color:'+${c.getLab().lab.getColor()}+ '; right : 45.5%;'">Enroll</button>
+                    </div></center>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</center>
+<!--+${c.getLab().getColor()} + '-->
+</body>
+</html>

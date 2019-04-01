@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Gaming Lab - Zarqa</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P"/>
+	<link href="/static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" media="screen">
+
+<body>
+
+<div class="header"> <!-- for header and buttons-->
+	<button type="button" onclick="location.href='/login'" style="background-color: #e92075; right: 1%;">Login</button>
+	<button type="button" onclick="location.href='/signup'"  style="background-color: #c4d52c; right: 8%;">Sign up</button>
+	<button type="button" style="background-color: #3e1198; right: 15%;">Courses</button>
+</div>
+
+<center>
+	<div class="welcome">
+		<img th:src="@{/images/logo.png}"/>
+		<h1 class="welcome-header" style="font-family: Play">Make your own games and we will help you</h1>
+		<h1 class="welcome-header" style="font-family: 'Press Start 2P';font-size: 200%">FOR FREE!</h1>
+		<center>
+			<button type="button" onclick="hide()" style="background-color: #ffd900; right: 45.5%;">More!</button>
+		</center>
+	</div>
+</center>
+
+<center>
+	<div id="about">
+		<table>
+			<tr>
+				<td colspan="2">
+					<div>
+						<center>
+							<h4 style="font-family: Play; color: #283736">Who we are:</h4>
+							<h2 style="font-family: Play">King Abdullah II Fund for Development with a partnership with
+								<br/>Maysalward for Game Development and Design</h2>
+							<h4 style="font-family: Play; color: #283736;">We make business in playing games</h4>
+							<p style="width: 50%;font-size: 120%; font-family: Play; color: #fff; text-align: justify-all;">
+								We aim to create game business and commerce in Jordan and leverage the existing
+								companies in this growing sector of digital-content, where businesses at a later stage
+								could use the Lab to group test their products using dozens of testers.
+								We could also serve as a game recruitment and training facility and be used for gaming
+								business meetings and workshop activities. We give courses about Game Design and
+								Development, how to build your first game and design it.
+								“The Gaming Lab” is a facility that is specifically designed to meet the needs of the
+								developers and companies in game design and development. It is a place dedicated to
+								exploration and innovation of converging technologies. Within a supportive environment,
+								the King Abdullah II Fund for Development has launched the Lab to act as an initial
+								incubator where young Jordanian creative minds can experiment with technology and can
+								work on developing their own game ideas. The aim of the Lab is to support and elevate
+								the gaming sector as a fast growing and promising industry in Jordan, and benchmark
+								Jordan as the gaming hub in the region.
+							</p>
+						</center>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 50%;">
+					<div>
+						<center>
+							<img class="cornered-img" th:src="@{/images/unnamed.png}">
+						</center>
+					</div>
+				</td>
+				<td style="width: 50%;">
+					<div>
+						<center>
+							<img class="cornered-img" th:src="@{/images/kafd.jpg}">
+						</center>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</center>
+
+<script>
+	function hide() {
+
+		var x = document.getElementById("about");
+		if (x.style.display === "block") {
+			x.style.display = "none";
+		} else {
+			x.style.display = "block";
+		}
+	}
+</script>
+
+<center>
+	<div style="width: 85%; margin: 3%; margin-top: 6%;">
+		<center>
+			<h2 style="font-family: Play; color: #000;  width: 15%;border-radius: 20px;">
+				Where we are:
+			</h2>
+			<h3 style="font-family: Play; color: #222;  width: 30%;padding: 1%; border-radius: 20px;">
+				We are in all over the kingdom in the next few years, now we are in these cities:
+			</h3>
+			<table>
+				<tr>
+					<td>
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/amman.png}"/>
+							</center>
+						</div>
+					</td>
+					<td>
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/zarqa.png}">
+							</center>
+						</div>
+					</td>
+					<td>
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/irbid.png}">
+							</center>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/aqaba.png}">
+							</center>
+						</div>
+					</td>
+					<td>
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/karak_c.png}">
+							</center>
+						</div>
+					</td>
+					<td>
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/maan.png}">
+							</center>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+
+					</td>
+					<td>
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/karak_m.png}">
+							</center>
+						</div>
+					</td>
+					<td>
+
+					</td>
+				</tr>
+			</table>
+		</center>
+	</div>
+</center>
+
+
+</body>
+</html>

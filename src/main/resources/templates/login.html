@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Log in</title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+	<center>
+		<div style="width: 100%; margin-top: 3%;">
+			<img th:src="@{/images/logo.png}"/>
+		</div>
+	</center>
+
+	<center>
+		<div class="login" style="padding-bottom: 5%;"><br/>
+			<h2 style="font-family: Play; color: #fff;">Please log in..</h2>
+			<form method="post" th:action="@{login}">
+
+				<h2 th:if="${param.error}" style="color: #880000;background-color: #9EA2AB;font-family: Play;">Invalid Email or password</h2>
+
+				<input type="text" name="userName" placeholder="Enter your Email">
+
+				<input type="password" name="password" placeholder="Enter your password">
+
+				<div>
+					<input type="submit" style="background-color: #161D35; right: 46%" value="Login">
+				</div>
+				<hr>
+				<div style="width: 100%;height: 50%; margin-top: 5%;">
+					<h4 style="font-family: Play; color: #fff;">Don't have an account?</h4>
+					<button type="button" style="background-color: #c4d52c; right: 46%;">Sign up</button>
+				</div>
+
+			</form>
+		</div>
+	</center>
+
+</body>
+</html>

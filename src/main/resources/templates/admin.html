@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Posting a course</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+	<style>
+		article, aside, figure, footer, header, hgroup,
+		menu, nav, section { display: block; }
+	</style>
+</head>
+
+<body>
+
+<center>
+	<div style="width : 75%;background-color: #c0c0c0; padding-bottom: 7%; margin-top: 7%; border-radius: 20px;"><br/>
+		<form th:action="@{/admin}" method="post" enctype="multipart/form-data">
+			<h2 style="color: #fff; font-family: Play">Select image course to upload:</h2>
+
+			<div style="margin-bottom: 1%;">
+				<img src="#"  id="course" style="display: none" name="courseImage">
+			</div>
+			<div>
+				<label class="fileContainer">
+					Upload
+					<input type="file" name="image" onchange="preview_image(event)" />
+				</label>
+			</div>
+			<div>
+				<select name="city">
+					<option value="Amman">Amman</option>
+					<option value="Zarqa">Zarqa</option>
+					<option value="Aqaba">Aqaba</option>
+					<option value="Irbid">Irbid</option>
+					<option value="Maan">Ma'an</option>
+					<option value="Karak_c">Karak - Creative club</option>
+					<option value="karak_m">Karak - Muta University</option>
+				</select>
+			</div>
+			<div>
+				<input type="submit" style="background-color: #161D35; right: 45.5%" value="Post">
+			</div>
+		</form>
+	</div>
+</center>
+
+<script type='text/javascript'>
+	function preview_image(event)
+	{
+		var reader = new FileReader();
+		reader.onload = function()
+		{
+			var output = document.getElementById('course');
+			output.src = reader.result;
+			output.style = "width : 50%";
+			output.display = block;
+			output.style = "border-radius : 20px";
+		}
+		reader.readAsDataURL(event.target.files[0]);
+	}
+</script>
+
+</body>
+</html>
