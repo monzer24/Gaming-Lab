@@ -3,60 +3,58 @@ package com.gaming.lab.data;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
 @Document(collection = "Members")
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 //@RequiredArgsConstructor
-public class User  {
+public class User implements Serializable {
 
     @Id
     private String id;
 
-    @NotBlank
+    @NotBlank(message = "Please make sure you entered your full name")
     private String fullName;
 
-    @Email
+    @Email(message = "Make sure you entered your E-mail right")
     private String email;
 
+    @NotNull
     private String password;
 
-    @NotBlank
+    @NotBlank(message = "Please enter your phone number")
     private String phoneNumber;
 
-    @NotBlank
     private Gender gender;
 
-    @NotBlank
+    @NotBlank(message = "Please enter your Social Security Number")
     private String ssn;
 
-    @NotBlank
+    @NotBlank(message = "Please specify your work")
     private String work;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date bdate;
 
-    @NotBlank
     private City city;
 
-    @NotBlank
     private Education education;
 
     private boolean programmer;
 
-    public User(@NotBlank String fullName, @Email String email, String password, @NotBlank String phoneNumber, @NotBlank Gender gender, @NotBlank String ssn, @NotBlank String work, Date bdate, @NotBlank City city, @NotBlank Education education, boolean programmer) {
+    public User( String fullName,  String email, String password,   String phoneNumber,  Gender gender,  String ssn,  String work, Date bdate,  City city,  Education education, boolean programmer) {
         this.fullName = fullName;
         this.password = password;
         this.email = email;

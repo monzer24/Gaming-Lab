@@ -14,6 +14,7 @@ public class LabApplication {
         System.out.println("http://localhost:8080/home");
         System.out.println("http://localhost:8080/course");
         System.out.println("http://localhost:8080/admin");
+        System.out.println("http://localhost:8080/root");
 
     }
 

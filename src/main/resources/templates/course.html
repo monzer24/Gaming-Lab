@@ -25,14 +25,22 @@ xmlns:th="http://www.thymeleaf.org">
             <tr>
                 <td>
                     <center><div>
-                        <img th:src="@{'data:image/png;base64,'+${c.courseImage}}"  style="padding: 5%; width: 75%; border-radius: 75px;">
+                        <img th:src="@{'data:image/png;base64,'+${c.courseImage}}" style="padding: 5%; padding-bottom: 1%; width: 75%; border-radius: 75px;">
                     </div></center>
                 </td>
             </tr>
             <tr>
+                <td><center><div>
+                    <label class="container" style="font-family:'Play'; color:#ffffff; font-size: larger" th:text="${c.getStudents().size()}+ ' students are in this course.'"></label>
+                </div></center></td>
+            </tr>
+            <tr>
                 <td>
                     <center><div>
-                        <button th:style="'background-color:'+${c.getLab().lab.getColor()}+ '; right : 45.5%;'">Enroll</button>
+                        <form method="post" th:action="@{/course}">
+                            <input th:hidden="true" type="text" th:value="${c.getId()}" name="courseId"/>
+                            <input type="submit" th:style="'background-color:'+${c.getLab().lab.getColor()}+ '; right : 45.5%; margin-bottom : 1%;'" value="Enroll"/>
+                        </form>
                     </div></center>
                 </td>
             </tr>

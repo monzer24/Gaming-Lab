@@ -15,9 +15,11 @@
 <body>
 
 <div class="header"> <!-- for header and buttons-->
-	<button type="button" onclick="location.href='/login'" style="background-color: #e92075; right: 1%;">Login</button>
-	<button type="button" onclick="location.href='/signup'"  style="background-color: #c4d52c; right: 8%;">Sign up</button>
-	<button type="button" style="background-color: #3e1198; right: 15%;">Courses</button>
+    <button type="submit" onclick="location.href='/login'" style="background-color: #e92075; right: 1%;">Login</button>
+    <button type="submit" onclick="location.href='/signup'"  style="background-color: #c4d52c; right: 8%;">Sign up</button>
+	<form th:action="@{/home/course}" method="post">
+	<button type="submit" th:value="course" style="background-color: #3e1198; right: 15%;">Courses</button>
+	</form>
 </div>
 
 <center>
@@ -108,58 +110,57 @@
 					<td>
 						<div>
 							<center>
-								<img class="cornered-img" th:src="@{/images/labs/amman.png}"/>
+								<img class="cornered-img" th:src="@{/images/labs/amman.png}" th:name="amman" th:href="@{amman}">
 							</center>
 						</div>
 					</td>
 					<td>
 						<div>
 							<center>
-								<img class="cornered-img" th:src="@{/images/labs/zarqa.png}">
+								<img class="cornered-img" th:src="@{/images/labs/zarqa.png}" th:name="zarqa" th:href="@{zarqa}">
 							</center>
 						</div>
 					</td>
 					<td>
 						<div>
 							<center>
-								<img class="cornered-img" th:src="@{/images/labs/irbid.png}">
-							</center>
-						</div>
-					</td>
-				</tr>
-
-				<tr>
-					<td>
-						<div>
-							<center>
-								<img class="cornered-img" th:src="@{/images/labs/aqaba.png}">
-							</center>
-						</div>
-					</td>
-					<td>
-						<div>
-							<center>
-								<img class="cornered-img" th:src="@{/images/labs/karak_c.png}">
-							</center>
-						</div>
-					</td>
-					<td>
-						<div>
-							<center>
-								<img class="cornered-img" th:src="@{/images/labs/maan.png}">
+								<form method="post" th:action="@{/irbid}">
+									<input type="image" class="cornered-img" th:src="@{/images/labs/irbid.png}" th:name="irbid">
+								</form>
 							</center>
 						</div>
 					</td>
 				</tr>
-
 				<tr>
 					<td>
-
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/aqaba.png}" th:name="aqaba" th:href="@{aqaba}">
+							</center>
+						</div>
 					</td>
 					<td>
 						<div>
 							<center>
-								<img class="cornered-img" th:src="@{/images/labs/karak_m.png}">
+								<img class="cornered-img" th:src="@{/images/labs/karak_c.png}" th:name="karak_c" th:href="@{karak_c}">
+							</center>
+						</div>
+					</td>
+					<td>
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/maan.png}" th:name="maan" th:href="@{maan}">
+							</center>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<div>
+							<center>
+								<img class="cornered-img" th:src="@{/images/labs/karak_m.png}" th:name="karak_m" th:href="@{karak_m}">
 							</center>
 						</div>
 					</td>

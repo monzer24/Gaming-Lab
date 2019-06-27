@@ -11,9 +11,7 @@ public class SecurityConfigration extends WebSecurityConfigurerAdapter {
             "/css/**",
             "/js/**",
             "/webjars/**",
-            "/static/**",
-            "/home",
-            "/login"
+            "/static/**"
     };
 
     @Override

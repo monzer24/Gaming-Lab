@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.Date;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -31,18 +32,13 @@ public class AdminController {
     @PostMapping
     public void post(MultipartFile image, String city){
         LabInfo lab = new LabInfo();
-        System.out.println(city);
         lab.lab = LabInfo.LabCity.valueOf(city.toUpperCase());
-        System.out.println("Posting");
-        System.out.println(lab);
         Course course = new Course(encode(image), lab);
-        System.out.println(course.getLab().lab.getColor());
+        course.setPostedAt(new Date());
         repo.save(course);
-        System.out.println("done");
     }
 
     private String encode(MultipartFile image){
-        System.out.println("hello");
         String imageString = null;
         try{
             InputStream input = image.getInputStream();

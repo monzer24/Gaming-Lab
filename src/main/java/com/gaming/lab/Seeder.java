@@ -6,27 +6,22 @@ import com.gaming.lab.data.UserRepository;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.data.mongodb.gridfs.GridFsOperations;
 import org.springframework.stereotype.Component;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 @Component
 public class Seeder implements CommandLineRunner {
 
     private UserRepository repo;
     private CourseRepository courseRepo;
-    private GridFsOperations options;
 
     @Autowired
-    public Seeder(UserRepository repo, CourseRepository courseRepo, GridFsOperations options) {
+    public Seeder(UserRepository repo, CourseRepository courseRepo) {
         this.repo = repo;
         this.courseRepo = courseRepo;
-        this.options = options;
     }
 
     @Override
@@ -70,11 +65,11 @@ public class Seeder implements CommandLineRunner {
                 User.Education.UNIVERSITY,
                 false);
 
+//        System.out.println("seeder addded");
+//        repo.deleteAll();
 
-        repo.deleteAll();
-
-        List<User> all = Arrays.asList(ahmad, ali, amal);
-        repo.saveAll(all);
+//        List<User> all = Arrays.asList(ahmad, ali, amal);
+//        repo.saveAll(all);
     }
 
     private String encode(BufferedImage image){

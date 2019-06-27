@@ -23,11 +23,15 @@
 			<h2 style="font-family: Play; color: #fff;">Please log in..</h2>
 			<form method="post" th:action="@{login}">
 
-				<h2 th:if="${param.error}" style="color: #880000;background-color: #9EA2AB;font-family: Play;">Invalid Email or password</h2>
+				<div th:if="${arg} == 1" style="background-color: #7b7b7b">
+					<label class="container" style="font-family:'Play'; color:#ffffff; font-size: larger">This user is not exist !</label>
+				</div>
+				<div th:if="${arg} == 2" style="background-color: #7b7b7b">
+					<label class="container" style="font-family:'Play'; color:#ffffff; font-size: larger">Wrong password !</label>
+				</div>
+				<input type="text" name="email" th:required="required" placeholder="Enter your Email">
 
-				<input type="text" name="userName" placeholder="Enter your Email">
-
-				<input type="password" name="password" placeholder="Enter your password">
+				<input type="password" name="password" th:required="required" placeholder="Enter your password">
 
 				<div>
 					<input type="submit" style="background-color: #161D35; right: 46%" value="Login">

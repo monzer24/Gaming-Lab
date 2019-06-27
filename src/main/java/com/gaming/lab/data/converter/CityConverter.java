@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class CityConverter implements Converter<String, User.City> {
     @Override
-    public User.City convert(String source) {
+    public User.City convert(String source)
+    {
         return User.City.valueOf(source.toUpperCase());
     }
 }

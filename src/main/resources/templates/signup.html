@@ -1,102 +1,87 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Sign Up</title>
-	<meta charset="utf-8" />
+    <title>Sign Up</title>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
 </head>
 <body>
 
-	<center>
-		<div style="width: 100%; margin-top: 3%;">
-			<img th:src="@{/images/logo.png}">
-		</div>
-	</center>
+<center>
+    <div style="width: 100%; margin-top: 3%;">
+        <img th:src="@{/images/logo.png}">
+    </div>
+</center>
 
-	<center>
-		<div class="sign-up" style="padding-bottom: 5%;" ><br/>
-			<h2 style="font-family: Play; color: #fff;">Create a new Account for free</h2>
+<center>
+    <div class="sign-up" style="padding-bottom: 5%;" ><br/>
+        <h2 style="font-family: Play; color: #fff;">Create a new Account for free</h2>
 
-			<form method="post" th:action="@{/signup}" id="signUpForm" th:object="${user}">
-				<!--<h2>-->
-					<!--<span th:if="${#fields.hasErrors()}"-->
-				<!--th:style="'color:#ff0000;'">-->
-					<!--Please fix the following error and re-submit-->
-				<!--</span>-->
-				<!--</h2>-->
-				<input type="text" name="fullName" placeholder="Enter your full name"/>
-				<span th:if="${#fields.hasErrors('name')}" th:errors="*{fullName}">Name Error</span><br/>
+        <h2 th:if="${param.error}" style="color: #880000;background-color: #9EA2AB;font-family: Play;">User is already exist!! <br/> you have to be a new User</h2>
 
-				<input type="email" name="email" placeholder="Enter your email"/>
-				<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</span><br/>
+        <form method="post" th:action="@{/signup}" id="signUpForm">
+            <input type="text" name="fullName"  th:required="required" placeholder="Enter your full name"/>
 
-				<input type="password" name="password" placeholder="Enter your Password"/>
-				<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</span><br/>
-
-				<input type="tel" name="phoneNumber" placeholder="Enter your phone number"/>
-				<span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Name Error</span><br/>
-
-				<select name="gender">
-					<option>Gender</option>
-					<option value="male">Male</option>
-					<option value="female">Female</option>
-				</select>
-				<span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Name Error</span><br/>
-
-				<input type="text" name="ssn" placeholder="Enter your social security number"/>
-				<span th:if="${#fields.hasErrors('ssn')}" th:errors="*{ssn}">Name Error</span><br/>
-
-				<input type="text" name="work" placeholder="Enter your Occupation"><br/><br/>
-				<span th:if="${#fields.hasErrors('work')}" th:errors="*{work}">Name Error</span><br/>
-
-				<label style="color: #757575;">Birthday</label>
-				<input type="date" id="datepicker" data-position="top" name="bdate" placeholder="bdate"/>
-				<span th:if="${#fields.hasErrors('bdate')}" th:errors="*{bdate}">Name Error</span><br/>
-
-				<select name="city">
-					<option value="none">City</option>
-					<option value="amman">Amman</option>
-					<option value="zarqa">Zarqa</option>
-					<option value="irbid">Irbid</option>
-					<option value="aqaba">Aqaba</option>
-					<option value="maan">Ma'an</option>
-					<option value="karakc">Karak - Creativity club</option>
-					<option value="karakm">Karak - Muta university</option>
-				</select>
-				<span th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Name Error</span><br/><br/><br/>
+            <input type="email" name="email" required="required" placeholder="Enter your email"/>
 
 
-				<label style="color:#757575;">Education</label>
-				<select style="width: 50%;" name="education">
-					<option value="none">None</option>
-					<option value="university">University student</option>
-					<option value="school">School student</option>
-				</select>
-				<span th:if="${#fields.hasErrors('education')}" th:errors="*{education}">Name Error</span><br/><br/><br/>
+            <input type="password" name="password"  th:required="required" placeholder="Enter your Password"/>
 
-				<label class="container" style="font-size: 100%;">I have dealt with a programming language before 
-					<input type="checkbox" name="programmer"/>
-					<span class="checkmark"></span>
-				</label>
+            <input type="tel" name="phoneNumber" th:required="required" placeholder="Enter your phone number"/>
 
-				<div>
-					<input type="submit" style="background-color: #161D35; right: 46%" value="Sign up">
-				</div>
-				<hr>
-				<div style="width: 100%;height: 50%; margin-top: 5%;">
-					<h4 style="font-family: Play; color: #fff;">Already have an account?</h4>
-					<button type="button" style="background-color: #eb1c79; right: 46%;">Login</button>
-				</div>
+            <select name="gender" required="required">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
 
-			</form>
-		</div>
-	</center>
+            <input type="text" name="ssn" required="required" placeholder="Enter your social security number"/>
+
+            <input type="text" name="work" required="required" placeholder="Enter your Occupation"><br/><br/>
+
+            <label style="font-family:'Play';  color:#757575; font-size: larger">Birthday</label>
+            <input type="date" id="datepicker" required="required" data-position="top" name="bdate" placeholder="bdate"/>
+
+            <select name="city" required="required">
+                <option value="amman">Amman</option>
+                <option value="zarqa">Zarqa</option>
+                <option value="irbid">Irbid</option>
+                <option value="aqaba">Aqaba</option>
+                <option value="maan">Ma'an</option>
+                <option value="karakc">Karak - Creativity club</option>
+                <option value="karakm">Karak - Muta university</option>
+            </select><br/>
+
+
+            <label style="font-family:'Play';  color:#757575; font-size: larger">Education</label>
+            <select style="width: 50%;" name="education" required="required">
+                <option value="none">None</option>
+                <option value="university">University student</option>
+                <option value="school">School student</option>
+            </select>
+
+            <label class="container" style="font-size: 100%;">I have dealt with a programming language before
+                <input type="checkbox" name="programmer"/>
+                <span class="checkmark"></span>
+            </label>
+
+            <div>
+                <input type="submit" style="background-color: #161D35; right: 46%" value="Sign up">
+            </div>
+            <hr>
+            <div style="width: 100%;height: 50%; margin-top: 5%;">
+                <h4 style="font-family: Play; color: #fff;">Already have an account?</h4>
+                <button type="button" style="background-color: #eb1c79; right: 46%;">Login</button>
+            </div>
+
+        </form>
+    </div>
+</center>
 
 </body>
 </html>
